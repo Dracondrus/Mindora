@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
 import "../../styles/main.scss";
+import AuthProvider from "@/provider/AuthProvider";
 
 export const metadata: Metadata = {
   title: "Mindore",
@@ -26,7 +27,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        {/* ✅ Google Fonts через <link> */}
+        
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
@@ -35,7 +36,10 @@ export default async function RootLayout({
         />
       </head>
       <body>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          <AuthProvider>       {children}</AuthProvider>
+   
+          </NextIntlClientProvider>
       </body>
     </html>
   );
