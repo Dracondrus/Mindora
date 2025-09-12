@@ -6,6 +6,8 @@ import { routing } from "@/i18n/routing";
 
 import "../../styles/main.scss";
 import AuthProvider from "@/provider/AuthProvider";
+import AuthCheckProvider from "@/provider/AuthCheckProvider";
+import Menu from "@/components/Menu/Menu";
 
 export const metadata: Metadata = {
   title: "Mindore",
@@ -24,6 +26,7 @@ export default async function RootLayout({
     notFound();
   }
 
+
   return (
     <html lang={locale}>
       <head>
@@ -37,7 +40,12 @@ export default async function RootLayout({
       </head>
       <body>
         <NextIntlClientProvider>
-          <AuthProvider>       {children}</AuthProvider>
+          <AuthProvider>
+            <AuthCheckProvider>
+              <Menu/>
+              {children}
+              </AuthCheckProvider>
+          </AuthProvider>
    
           </NextIntlClientProvider>
       </body>

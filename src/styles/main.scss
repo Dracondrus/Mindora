@@ -10,6 +10,11 @@ body {
       font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   
-    color:#fff;
-    background: #000;
+    color:var(--white);
+    background: var(--black);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }

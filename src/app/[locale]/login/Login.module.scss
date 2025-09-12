@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; // центрирование по всей высоте экрана
+  background: var(--black); // фон (можешь убрать или поменять)
+}
+
+.button {
+  background: var(--gray);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 20px;
+  font-size: var(--fz18);
+  font-weight: var(--fw600);
+  cursor: pointer;
+  border: none;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background: var(--white);
+    color: var(--black);
+    transform: scale(1.05);
+  }
+}
