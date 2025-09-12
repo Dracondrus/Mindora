@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:7777", // потом можно заменить на Render/домен
+  // https://mindora-backend-express-js.onrender.com/
+  baseURL: "https://mindora-backend-express-js.onrender.com", // потом можно заменить на Render/домен
   headers: {
     "Content-Type": "application/json",
   },

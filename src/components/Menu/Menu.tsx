@@ -4,6 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import styles from "./Menu.module.scss"
 import ELFAS from "../../../public/assets/img/ELFASA.jpg"
+import Link from "next/link"
 
 export default function Menu() {
   const [open, setOpen] = useState(false)
@@ -24,15 +25,15 @@ export default function Menu() {
 
       {/* Навигация */}
       <nav className={styles.nav}>
-        <a href="/">Home</a>
-        <a href="/catalog">Catalog</a>
-        <a href="/create">Create</a>
-        <a href="/price">Price</a>
+        <Link href="/">Home</Link>
+        <Link href="/catalog">Catalog</Link>
+        <Link href="/create">Create</Link>
+        <Link href="/price">Price</Link>
       </nav>
 
       {/* Profile */}
       <div className={styles.profile}>
-        <a href="/profile">Profile</a>
+        <Link href="/profile">Profile</Link>
       </div>
 
       {/* Бургер */}
@@ -46,11 +47,11 @@ export default function Menu() {
       {/* Сайдбар */}
       <div className={`${styles.sidebar} ${open ? styles.open : ""}`}>
         <nav className={styles.sidebarLinks}>
-          <a href="/">Home</a>
-        <a href="/catalog">Catalog</a>
-        <a href="/create">Create</a>
-        <a href="/price">Price</a>
-          <a href="/profile">Profile</a>
+          <Link href="/">Home</Link>
+          <Link href="/catalog">Catalog</Link>
+          <Link href="/create">Create</Link>
+          <Link href="/price">Price</Link>
+          <Link href="/profile">Profile</Link>
         </nav>
       </div>
 
