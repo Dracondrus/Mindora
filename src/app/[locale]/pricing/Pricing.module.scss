@@ -1,0 +1,41 @@
+
+
+.container {
+    margin: 0 auto;
+    max-width: 576px;
+    padding: 0 7px;
+}
+
+.pricing__items {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--fw700);
+}
+.priceStatusService {
+    color: var(--cyan);
+    text-align: center;
+    font-weight: var(--fw900);
+    padding-bottom: 6px;
+}
+.Connection {
+    text-align: center;
+    font-weight: var(--fw900);
+    color: var(--purple);
+     padding-bottom: 6px;
+}
+.Timer {
+    text-align: center;
+    font-weight: var(--fw900);
+    color: var(--orange);
+    padding-bottom: 6px;
+}
+
+.btn {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    font-weight: var(--fw900);
+    font-size: 18px;
+    color: var(--green);
+}

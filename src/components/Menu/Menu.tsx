@@ -20,7 +20,10 @@ export default function Menu() {
           width={40}
           height={40}
         />
-        <b>ELFASA</b>
+       <div>Mindora 
+        <br />
+        
+       </div>
       </div>
 
       {/* Навигация */}
@@ -28,7 +31,7 @@ export default function Menu() {
         <Link href="/">Home</Link>
         <Link href="/catalog">Catalog</Link>
         <Link href="/create">Create</Link>
-        <Link href="/price">Price</Link>
+        <Link href="/pricing">Pricing</Link>
       </nav>
 
       {/* Profile */}
@@ -50,7 +53,7 @@ export default function Menu() {
           <Link href="/">Home</Link>
           <Link href="/catalog">Catalog</Link>
           <Link href="/create">Create</Link>
-          <Link href="/price">Price</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/profile">Profile</Link>
         </nav>
       </div>
