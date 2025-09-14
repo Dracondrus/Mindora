@@ -150,16 +150,16 @@
 .sidebarLinks {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 
   a {
     font-size: var(--fz20);
-    font-weight: var(--fw600);
+    font-weight: var(--fw700);
     color: var(--white);
-    transition: color 0.2s;
+    transition: color 0.1s;
 
     &:hover {
-      color: var(--cyan);
+      color: var(--gray);
     }
   }
 }

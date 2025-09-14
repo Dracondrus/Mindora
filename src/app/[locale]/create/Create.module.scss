@@ -1,0 +1,38 @@
+.container {
+max-width: 576px;
+margin: 0 auto;
+padding: 0 8px;
+
+
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--fw700);
+}
+
+.btn {
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 4px 8px;
+  border: 1px solid var(--white);
+  background: none;
+  color: var(--white);
+}
+button:disabled {
+color: var(--gray);
+  border: 1px solid var(--gray);
+}
+.test {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--fw700);
+
+}
+.testInfo {
+  font-weight: var(--fw700);
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--white);
+}

@@ -39,3 +39,10 @@
     font-size: 18px;
     color: var(--green);
 }
+.newTestCreate {
+    display: flex;
+    justify-content: space-between;
+}
+.newTestCreate span {
+    font-weight: var(--fw700);
+}

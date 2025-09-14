@@ -8,10 +8,7 @@ const pricing = [
     name: "Local storage",
     price: 1,
   },
-  {
-    name: "Online storage",
-    price: 2,
-  },
+
   {
     name: "Public storage",
     price: 4,
@@ -34,19 +31,16 @@ const Connection = [
 ];
 const Timer = [
   {
-    name: "Local storage",
+    name: "Local term",
     price: 0.1,
   },
+
   {
-    name: "Online storage",
-    price: 0.2,
-  },
-  {
-    name: "Public storage",
+    name: "Public term",
     price: 0.4,
   },
   {
-    name: "Private storage",
+    name: "Private term",
     price: 0.9,
   },
 ]
@@ -87,8 +81,9 @@ export default function Pricing() {
         ))}
       </div>
 <br />
+   <div className={styles.newTestCreate}><span>Additionally create a test</span>  <span>1$</span></div>
 
-      <h4><b>Our service for creating questions each for 0.01 $</b></h4>
+   
       <br />
   <Link 
   href="https://t.me/elfasa_tasa" 

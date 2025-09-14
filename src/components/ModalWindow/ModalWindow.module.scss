@@ -1,0 +1,25 @@
+
+.container {
+padding: 6px 0;
+ 
+    max-width: 100%;
+   display: flex;
+   justify-content: space-between;
+
+}
+
+.select {
+    border: none;
+     content: "";
+}
+.select::after {
+    border: none;
+}
+
+.btn {
+    background: none;
+    color: var(--white);
+    font-weight: var(--fw700);
+    border: none;
+
+}

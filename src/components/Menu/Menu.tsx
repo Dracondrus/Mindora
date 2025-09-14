@@ -9,6 +9,9 @@ import Link from "next/link"
 export default function Menu() {
   const [open, setOpen] = useState(false)
 
+  // Функция закрытия меню при клике на ссылку
+  const handleClose = () => setOpen(false)
+
   return (
     <header className={styles.header}>
       {/* Лого */}
@@ -20,10 +23,10 @@ export default function Menu() {
           width={40}
           height={40}
         />
-       <div>Mindora 
-        <br />
-        
-       </div>
+        <div>
+          ELFASA
+          <br />
+        </div>
       </div>
 
       {/* Навигация */}
@@ -50,16 +53,16 @@ export default function Menu() {
       {/* Сайдбар */}
       <div className={`${styles.sidebar} ${open ? styles.open : ""}`}>
         <nav className={styles.sidebarLinks}>
-          <Link href="/">Home</Link>
-          <Link href="/catalog">Catalog</Link>
-          <Link href="/create">Create</Link>
-          <Link href="/pricing">Pricing</Link>
-          <Link href="/profile">Profile</Link>
+          <Link href="/" onClick={handleClose}>Home</Link>
+          <Link href="/catalog" onClick={handleClose}>Catalog</Link>
+          <Link href="/create" onClick={handleClose}>Create</Link>
+          <Link href="/pricing" onClick={handleClose}>Pricing</Link>
+          <Link href="/profile" onClick={handleClose}>Profile</Link>
         </nav>
       </div>
 
       {/* Затемнение */}
-      {open && <div className={styles.overlay} onClick={() => setOpen(false)} />}
+      {open && <div className={styles.overlay} onClick={handleClose} />}
     </header>
   )
 }
