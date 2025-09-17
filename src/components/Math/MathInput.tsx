@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import "mathlive" // подключаем Web Component
+import "mathlive"
+import { MathfieldElement } from "mathlive" // Импортируем тип
 
 interface MathInputProps {
   value: string
@@ -9,21 +10,25 @@ interface MathInputProps {
 }
 
 export default function MathInput({ value, onChange }: MathInputProps) {
-  const ref = useRef<any>(null)
+  // Типизируем ref как MathfieldElement
+  const ref = useRef<MathfieldElement>(null)
 
   useEffect(() => {
-    if (ref.current) {
+    // Внутри useEffect проверяем, что ref.current существует и является элементом
+    const mf = ref.current
+    if (mf) {
       // устанавливаем начальное значение
-      ref.current.value = value
+      mf.value = value
 
       // ловим изменения
-      const handleInput = (evt: any) => {
-        onChange(evt.target.value)
+      const handleInput = (evt: Event) => {
+        // evt.target приводим к типу MathfieldElement
+        onChange((evt.target as MathfieldElement).value)
       }
-      ref.current.addEventListener("input", handleInput)
+      mf.addEventListener("input", handleInput)
 
       return () => {
-        ref.current?.removeEventListener("input", handleInput)
+        mf.removeEventListener("input", handleInput)
       }
     }
   }, [value, onChange])
@@ -38,7 +43,7 @@ export default function MathInput({ value, onChange }: MathInputProps) {
           border: "1px solid #ccc",
           padding: "10px",
           fontSize: "18px",
-          borderRadius: "10px"
+          borderRadius: "10px",
         }}
       ></math-field>
     </div>
