@@ -5,13 +5,18 @@ import { useRouter, useParams } from "next/navigation"
 import { useSession } from "next-auth/react"
 import api from "@/lib/axios/axios"
 import styles from "./Work.module.scss"
+import CopyText from "@/components/CopyText/CopyText"
+import EditQuestion from "@/components/EditQuestion/EditQuestion"
+import AddStandart from "@/components/AddStandart/AddStandart"
+import AddJSON from "@/components/AddJSON/AddJSON"
+import ConfirmLeave from "@/components/ConfirmLeave/ConfirmLeave"
 
 // Тип вопроса
 interface Question {
   id: string
   text: string
-  options?: string[]
-  answer?: string
+  options: string[]
+  answer: string
 }
 
 // Тип теста
@@ -30,7 +35,10 @@ export default function Work() {
 
   const [test, setTest] = useState<Test | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
-  const [value, setValue] = useState<string>("")
+
+  const [warning, setWarning] = useState<boolean>(false)
+
+const [changeState,setChangeState] = useState<string>("Default")
 
   useEffect(() => {
     if (!session?.user?.email || !params?.id) return
@@ -49,29 +57,62 @@ export default function Work() {
         console.error("❌ Ошибка получения теста:", err)
         setLoading(false)
       })
-  }, [session?.user?.email, params?.id]) // ✅ зависимости добавлены
+  }, []) // ✅ зависимости добавлены
+
+  const onDelete = () => {
+    if (!session?.user) return
+
+    api.post("/users/delete-service", {
+      email: session.user.email,
+      testid: params.id
+    }).finally(() => {
+
+      router.push("/create")
+    })
+
+  }
 
   return (
     <div className={styles.container}>
-      <button onClick={() => router.back()}>Back</button>
+
+
 
       {loading ? (
-        <p>Downloading test...</p>
+        <b>Downloading test...</b>
       ) : test ? (
-        <div className={styles.testInfo}>
-          <h2>{test.title}</h2>
-          <p>Status: {test.status}</p>
-          <p>Created: {test.expire}</p>
-          <p>Questions: {test.questions?.length}</p>
-          <input
-            type="text"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
+        <div>
+
+         
+    {changeState == "Default" && <div>
+      
+       <div className={styles.container_btn}>
+            <div>  {test.title}</div>
+            <div onClick={() => router.back()}>Back</div>
+          </div>
+          <br />
+   <div className={styles.container_btn}>  <CopyText text={test.testid} />status {test.status} </div>
+  <div className={styles.container_btn}>    <div>Quantity questions {test.questions.length}</div> {test.expire} </div>
+
+<br />
+<br />
+<div className={styles.containerChanges}>
+  <button onClick={() => setChangeState("EditQuestions")} className={styles.changebtn}>Edit questions</button>
+<button onClick={() => setChangeState("AddStandart")} className={styles.changebtn}>Add Standart</button>
+<button onClick={() => setChangeState("AddJSON")} className={styles.changebtn}>Add JSON</button>
+</div>
+      
+      </div>}
+   {changeState == "EditQuestions" && <EditQuestion questions={test.questions} onChange={setChangeState}/>}
+   {changeState == "AddStandart" && <AddStandart questions={test.questions} onChange={setChangeState}/>}
+  {changeState == "AddJSON" && <AddJSON questions={test.questions} onChange={setChangeState}/>}
         </div>
       ) : (
         <p>Empty</p>
       )}
+      <br />
+      <br />
+      <ConfirmLeave/>
+     {changeState == "Default" && <> { warning ? <div className={styles.flex}>Are you shure ?  &nbsp;&nbsp;<div onClick={() => setWarning(!warning)} >No</div>&nbsp;&nbsp;&nbsp; <div onClick={onDelete}>Yes</div> </div> : <div onClick={() => setWarning(!warning)}> <b style={{ color: "Red" }}>Delete</b> </div>}</> }
     </div>
   )
 }

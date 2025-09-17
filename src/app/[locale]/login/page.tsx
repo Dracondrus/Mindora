@@ -45,7 +45,7 @@ export default function Login() {
         className={styles.button}
         onClick={() => signIn("google")}
       >
-        Войти с Google
+        Enter with Google
       </button>
     </div>
   );

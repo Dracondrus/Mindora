@@ -3,4 +3,28 @@
 .container  {
     max-width: 576px;
     margin: 0 auto;
+    padding: 0 8px;
+}
+
+.container_btn {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--fw700);
+}
+.flex {
+    display: flex;
+        font-weight: var(--fw700);
+}
+.containerChanges {
+    padding: 0 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.changebtn {
+    
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    font-weight: var(--fw700);
+
 }

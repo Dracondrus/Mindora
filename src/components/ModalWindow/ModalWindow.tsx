@@ -27,7 +27,7 @@ export default function ModalWindow () {
       title,
       testid: uuidv4(),           // уникальный идентификатор теста
       email: session.user.email,  // берём из session
-      status: "",                 // пустая строка
+      status: "draft",                 // пустая строка
       expire: new Date().toISOString().split("T")[0], // сегодня YYYY-MM-DD
       questions: []               // пока пустой массив
     }
