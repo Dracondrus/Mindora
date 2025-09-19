@@ -1,13 +1,126 @@
 /* src/components/AddStandart/AddStandart.module.scss */
 
 .container {
-  font-weight: var(--fw700);
-
+  padding: 0 4px;
+  color: var(--white);
+  font-size: var(--fz16);
 }
 
 .title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: var(--fz20);
   font-weight: var(--fw700);
 
+
+  span {
+    font-size: var(--fz16);
+    color: var(--red);
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      color: var(--orange);
+    }
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  label {
+    font-size: var(--fz14);
+    font-weight: var(--fw700);
+  }
+
+  input {
+    background: var(--black);
+    border: 1px solid var(--gray);
+    border-radius: 10px;
+    padding: 12px;
+    color: var(--white);
+    font-size: var(--fz16);
+    outline: none;
+    transition: 0.2s;
+
+    &:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 6px var(--cyan);
+    }
+  }
+}
+
+.variants {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.smallBtn {
+  align-self: flex-start;
+  padding: 4px 8px;
+  border: none;
+  background: #000;
+ color: var(--purple);
+  font-weight: var(--fw300);
+  font-size: var(--fz14);
+  cursor: pointer;
+  transition: 0.2s;
+
+
+}
+
+.saveBtn {
+margin-top: 30px;
+  border: none;
+ 
+
+background: var(--black);
+font-size: var(--fz18);
+  font-weight: var(--fw700);
+  cursor: pointer;
+  transition: 0.2s;
+
+color: var(--white);
+}
+
+.error {
+  color: var(--red);
+  font-size: var(--fz14);
+  margin-top: -5px;
+}
+
+.list {
+  margin-top: 30px;
+
+  h3 {
+    font-size: var(--fz18);
+    margin-bottom: 12px;
+    color: var(--orange);
+  }
+}
+
+.questionBlock {
+  background: #1c1c1c;
+  border: 1px solid var(--gray);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  b {
+    color: var(--cyan);
+    font-size: var(--fz16);
+  }
+
+  ul {
+    margin-top: 8px;
+    padding-left: 20px;
+
+    li {
+      font-size: var(--fz14);
+      margin-bottom: 4px;
+    }
+  }
 }

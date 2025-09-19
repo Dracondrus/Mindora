@@ -1,8 +1,147 @@
+.container {
+  padding: 0 1px;
 
-
+  color: var(--white);
+  border-radius: 12px;
+}
 
 .title {
-    display: flex;
-    justify-content: space-between;
+  font-size: var(--fz20);
+  font-weight: var(--fw700);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    cursor: pointer;
+    color: var(--red);
+    font-size: var(--fz16);
+  }
+}
+
+.search {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: var(--fz14);
+  background: var(--black);
+  color: var(--white);
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--gray);
+  border-radius: 8px;
+  background: #1e1e1e;
+}
+
+.id {
+  font-weight: var(--fw700);
+  color: var(--cyan);
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; // ✅ обрезка с "..."
+}
+
+.actions {
+  display: flex;
+  gap: 1px;
+
+  button {
+  
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: var(--fz14);
+  
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .deleteBtn {
     font-weight: var(--fw700);
+    background: none;
+    color: var(--red);
+  }
+
+  .confirmYes {
+    background: var(--green);
+  }
+
+  .confirmNo {
+    background: var(--gray);
+  }
+}
+
+.expanded {
+  grid-column: 1 / -1;
+  background: #2a2a2a;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    font-size: var(--fz14);
+    font-weight: var(--fw600);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--gray);
+    background: var(--black);
+    color: var(--white);
+    font-size: var(--fz14);
+  }
+}
+.saveAllWrapper {
+  .saveBtn {
+    border: none;
+   background: var(--black);
+   font-weight: var(--fw700);
+    color: var(--white);
+    font-size: var(--fz16);
+  }
+}
+.editActions {
+  display: flex;
+justify-content: space-between;
+
+  .saveBtn {
+    border: none;
+   background: var(--black);
+   font-weight: var(--fw700);
+   color: var(--green);
+  }
+
+  .cancelBtn {
+    color: var(--red);
+    
+        border: none;
+   background: none;
+  }
 }

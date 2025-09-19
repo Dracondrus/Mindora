@@ -102,9 +102,9 @@ const [changeState,setChangeState] = useState<string>("Default")
 </div>
       
       </div>}
-   {changeState == "EditQuestions" && <EditQuestion questions={test.questions} onChange={setChangeState}/>}
-   {changeState == "AddStandart" && <AddStandart questions={test.questions} onChange={setChangeState}/>}
-  {changeState == "AddJSON" && <AddJSON questions={test.questions} onChange={setChangeState}/>}
+   {changeState == "EditQuestions" && <EditQuestion testid={test.testid} questions={test.questions} onChange={setChangeState}/>}
+   {changeState == "AddStandart" && <AddStandart testid={test.testid} questions={test.questions} onChange={setChangeState}/>}
+  {changeState == "AddJSON" && <AddJSON testid={test.testid} questions={test.questions} onChange={setChangeState}/>}
         </div>
       ) : (
         <p>Empty</p>

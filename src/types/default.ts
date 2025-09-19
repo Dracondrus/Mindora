@@ -1,10 +1,11 @@
 
 
 export interface Default {
+  testid:string,
   questions : Question[]
   onChange: (newValue: string) => void
 }
-interface Question {
+export interface Question {
   id: string
   text: string
   options: string[]
