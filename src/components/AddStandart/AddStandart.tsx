@@ -88,8 +88,8 @@ export default function AddStandart({ onChange, questions, testid }: Default) {
       setNewQuestion("")
       setOptions(["", ""])
       setAnswer("")
-    } catch (err: any) {
-      console.error("❌ Error while saving question:", err)
+    } catch  {
+      console.error("❌ Error while saving question:")
       setError("Error while saving question")
     } finally {
       setLoading(false)
